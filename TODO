@@ -1,1 +1,10 @@
+clean the repository :
+    - regroup all ROS related content on a ROS file
+    - clean README 
+
+Create the container:
+    - make a container.md file explaining how to make one
+    - adapt the container to ower needs (os2 Humble)
+
+Readapt the ros files to be used with the Humble distribution:
 
