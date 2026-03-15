@@ -1,0 +1,34 @@
+{
+  "name": "Autoflow",
+  
+  "image": "autoflow",
+
+  "runArgs": [
+    "--network=host",
+    "--privileged",  // Required for hardware access
+    "--env=DISPLAY=${localEnv:DISPLAY}",
+    "--env=QT_X11_NO_MITSHM=1",
+    "-v=/tmp/.X11-unix:/tmp/.X11-unix"
+  ],
+  
+   "workspaceFolder": "/workspace",
+
+   "mounts": [
+    "source=${env:HOME}/Desktop/Autoflow,target=/workspace,type=bind"
+  ],
+  
+  "extensions": [
+    "ms-iot.vscode-ros-robotics",
+    "ms-python.python"
+  ],
+
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "/bin/bash"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  
+}

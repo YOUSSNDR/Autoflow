@@ -7,14 +7,14 @@ In this file you will find the simulation part of the robot.
 In the config file you will find configurations for Rviz, the bridge for gazebo and the mapp parameters to do SLAM. 
 
 ### Description
-Here you will find the description for our robot separate in multiple file using xacro.
+Here you will find the description for our robot separated in multiple file using xacro.
 
 ### Launch 
 You will find there the different launch file to lauch the simulation.
 using "ros2 launch autoflow_sim robot.launch.py" will open the simulation on gazebo and Rviz.
 
-### Words
-In this file you can acces the different words we will use in gazebo.
+### Worlds
+In this file you can acces the different worlds we will use in gazebo.
 
 
 
