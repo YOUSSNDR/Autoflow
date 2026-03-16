@@ -1,3 +1,6 @@
+Review ros basis:
+follow tutorial ep4/11:https://youtu.be/iBGZ8LEvkCY?list=PLLSegLrePWgJudpPUof4-nVFHGkB62Izy
+
 Readapt the ros files to be used with the Humble distribution:
 - make a new ros workspace
 - adapt all the project 
