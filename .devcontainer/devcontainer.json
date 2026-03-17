@@ -18,7 +18,7 @@
   ],
   
   "extensions": [
-    "ms-iot.vscode-ros-robotics",
+    "ranch-hand-robotics.rde-pack",
     "ms-python.python"
   ],
 

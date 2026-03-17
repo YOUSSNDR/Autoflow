@@ -49,4 +49,25 @@ ament is the build system, ament_python will build a python package, ament_cmake
 --dependencies allows us to add all the packages and functionalities wich will be need to use in the package.
 here we added rclpy which is the python library for ros2
 
-This will create a packagefor which we can change the infos in the package.xml and setup.py. To make our nodes we will modify the __init__.py.
+This will create a package for which we can change the infos in the package.xml and setup.py.
+
+## Create Nodes
+
+To make our nodes we will place them in the same directory as __init.py__ (for exemple here : ros2_ws/src/my_package/my_package).
+
+You create the nodes as if you where making a file:
+```bash
+touch my_node.py
+```
+This will create a python node. You will then need to make it executable:
+```bash
+chmod +x my_node.py
+```
+
+When making a node with python, the firs line of the node code has to be:
+```python
+#!/usr/bin/env python3
+import rclpy
+```
+This will tell the interpreter to use python3.  
+The import is mandatory to create a ros2 node with python.
