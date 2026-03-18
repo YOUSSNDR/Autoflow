@@ -71,3 +71,27 @@ import rclpy
 ```
 This will tell the interpreter to use python3.  
 The import is mandatory to create a ros2 node with python.
+
+The main program will look like that:
+```python
+def main(args=None):
+    rclpy.init(args=args) # First line in the main we initialise ros2 communication
+    
+    #The program will be here
+
+    rclpy.shutdown() # Will always be the last line
+
+if __name__=='__main__':
+    main()
+```
+The if __name__==... will be use if we execute the program from the terminal
+
+the rclpy.init and rclpy.shutdown are mandatory to use a ros2 node, they are the start and end of the ros2 communication.
+
+The Node creation itself looks more like that :
+```python
+class MyNode(Node): #Class creation
+
+    def __init__(self): #constructor
+        super().__init__("first_node") #give a name to the node
+```
