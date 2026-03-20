@@ -167,3 +167,6 @@ gazebo can also be oppened by itself with the command:
 ```bash
 ign gazebo
 ```
+
+Todo: There is an issue with the interpreter, you can run the code as you wish however you do not get the autofil, infos and others functionalities from vscode. I tried changing interpreter but the issue is still there.
+For now I am forced to code with the interpreter outside of the container.

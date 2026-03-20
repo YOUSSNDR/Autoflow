@@ -45,7 +45,7 @@ To creat a package you have to be in the "src" file of the workspace and enter i
 ```bash
 ros2 pkg create robot_name_function --build-type ament_python --dependencies rclpy # or ament_cmake
 ```
-ament is the build system, ament_python will build a python package, ament_cmake a cpp one.  
+ament is the build system, ament_pythnode_nameon will build a python package, ament_cmake a cpp one.  
 --dependencies allows us to add all the packages and functionalities wich will be need to use in the package.
 here we added rclpy which is the python library for ros2
 
@@ -95,3 +95,44 @@ class MyNode(Node): #Class creation
     def __init__(self): #constructor
         super().__init__("first_node") #give a name to the node
 ```
+
+using the function:
+```python
+def function_name(args=None)
+rclpy.init(args=args)
+node_name= Mynode #will execute the Mynode class
+rclpy.spin(node_name)
+rclpy.shutdown()
+```
+"rclpy.spin(node_name)" allow us to let the node run until killed.
+
+If we want to be able to run our node with ros, we need to modify the entry point in the setup.py of our package like this:
+```python
+entry_points={
+        'console_scripts': [
+            "executable_name = package_name.file_name:function_name" #we do not put the .py extension to the file name
+        ],
+    },
+```
+After that we will be able to build it from the /src folder with:
+```bash
+colcon build
+```
+After building a new node we need to source the workspace again.
+
+In our exemple we will be able to run the node with the following command:
+```bash
+ros2 run package_name executable_name
+```
+
+As python is an interpreted language, there is a way to run new version of the node witheout having to build each time after modifying the python script. For that we have to build the workspace this way:
+```bash
+colcon build --symlink-install
+```
+If we want to periodically call a function we do:
+```python
+def __init__(self): #constructor
+        super().__init__("first_node") #give a name to the node
+        self.create_timer(1.0,self.function_name) #will call the function every sec
+```
+Thanks to the rclpy.spin (in the main)the program will loop on untill killed activating the function in this case every seconds
