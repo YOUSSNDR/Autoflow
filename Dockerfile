@@ -23,4 +23,5 @@ WORKDIR /workspace
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN echo "export IGN_GAZEBO_RESOURCE_PATH=/usr/share/ignition/fortress" >> ~/.bashrc
 RUN echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+# Need to source the workspace setup.bash
 SHELL ["/bin/bash", "-c"]

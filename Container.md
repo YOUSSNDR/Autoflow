@@ -168,5 +168,27 @@ gazebo can also be oppened by itself with the command:
 ign gazebo
 ```
 
-Todo: There is an issue with the interpreter, you can run the code as you wish however you do not get the autofil, infos and others functionalities from vscode. I tried changing interpreter but the issue is still there.
-For now I am forced to code with the interpreter outside of the container.
+### Fixes
+
+#### Interpreter issues
+There was one issue where I could access ros python functionalities such as autofil and checking infos for ros imports (like rclpy). This was due to an interpreter issue.  
+In my case as I have two version of ros2 (jazzy in my pc and humble on my containers). My ".vscode/settings.json" file was set to the Jazzy distro which allowed me to access the functionalities outside the container.  
+To fic the issue I modified the paths to the right distro: "humble".
+```json
+{
+    "ROS2.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
+```
+
+#### devcontainer.json errors
+Sometimes when launching the container an error in the "devcontainer.json" file was preventing me from entering it.  
+The reason was that I started using another pc to access the container. However my project directory is not placed at the same place depending the computer, therefore I need to manually modify the ".devcontainer/devcontainer.json" (more precisely the "mounts" part) for the the container to know where the project is.  
+I choose to modify the file each time after pulling on a different computer but I could also add it to the .gitignore however I will have to remove it from there if I modify something else (container related)in it.
